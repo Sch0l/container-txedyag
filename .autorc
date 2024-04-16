@@ -1,0 +1,12 @@
+{
+  "plugins": [
+    "git-tag",
+    "all-contributors",
+    "first-time-contributor",
+    "released"
+  ],
+  "owner": "Sch0l",
+  "repo": "container-txedyag",
+  "name": "Sch0l",
+  "email": "lacorrigan01@kellerisd.com",
+}
