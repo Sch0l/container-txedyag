@@ -1,3 +1,16 @@
+# v0.0.3 (Thu Apr 18 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Merge branch 'main' of https://github.com/Sch0l/container-txedyag ([@HuntGamesOfficial](https://github.com/HuntGamesOfficial))
+- update ([@HuntGamesOfficial](https://github.com/HuntGamesOfficial))
+
+#### Authors: 1
+
+- [@HuntGamesOfficial](https://github.com/HuntGamesOfficial)
+
+---
+
 # v0.0.2 (Thu Apr 18 2024)
 
 :tada: This release contains work from a new contributor! :tada:
