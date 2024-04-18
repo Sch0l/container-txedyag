@@ -1,3 +1,19 @@
+# v0.0.2 (Thu Apr 18 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, null[@HuntGamesOfficial](https://github.com/HuntGamesOfficial), for all your work!
+
+#### ⚠️ Pushed to `main`
+
+- summary ([@HuntGamesOfficial](https://github.com/HuntGamesOfficial))
+
+#### Authors: 1
+
+- [@HuntGamesOfficial](https://github.com/HuntGamesOfficial)
+
+---
+
 # v0.0.1 (Tue Apr 16 2024)
 
 :tada: This release contains work from a new contributor! :tada:
