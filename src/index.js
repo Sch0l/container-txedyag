@@ -28,6 +28,10 @@ app.use((req, res) => {
   res.sendFile(join(__dirname, publicPath, "404.html"));
 });
 
+app.get("/", (req, res) => {
+  res.sendFile(join(__dirname, publicPath, "index.html"));
+});
+
 const server = createServer();
 
 server.on("request", (req, res) => {
