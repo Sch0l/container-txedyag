@@ -1,3 +1,10 @@
+import { createBareServer } from "@tomphttp/bare-server-node";
+import { createServer } from "node:http";
+import { join } from "node:path";
+import { fileURLToPath } from "node:url";
+
+
+
 const express = require("express")
 const app = express()
 const port = 5000
@@ -10,9 +17,63 @@ DB_HOST = process.env.DB_HOST;
 DB_PORT = process.env.DB_PORT;
 DB_NAME = process.env.DB_NAME;
 
-app.get("/", (req, res) => {
-  res.send("Hello World!<br />Check /health to verify database connection is also OK")
-})
+const __dirname = join(fileURLToPath(import.meta.url), "..");
+const bare = createBareServer("/bare/");
+const publicPath = "public";
+
+app.use(express.static(publicPath));
+
+app.use((req, res) => {
+  res.status(404);
+  res.sendFile(join(__dirname, publicPath, "404.html"));
+});
+
+const server = createServer();
+
+server.on("request", (req, res) => {
+  if (bare.shouldRoute(req)) {
+      bare.routeRequest(req, res);
+  } else {
+      app(req, res);
+  }
+});
+
+server.on("upgrade", (req, socket, head) => {
+  if (bare.shouldRoute(req)) {
+      bare.routeUpgrade(req, socket, head);
+  } else {
+      socket.end();
+  }
+});
+
+let Port = parseInt(process.env.PORT || "");
+
+if (isNaN(Port)) Port = 5000;
+
+server.on("listening", () => {
+  const address = server.address();
+  console.log("Listening on:");
+  console.log(`\thttp://localhost:${address.port}`);
+  console.log(
+      `\thttp://${
+          address.family === "IPv6" ? `[${address.address}]` : address.address
+      }:${address.port}`
+  );
+});
+
+process.on("SIGINT", shutdown);
+process.on("SIGTERM", shutdown);
+
+function shutdown() {
+  console.log("SIGTERM signal received: closing HTTP server");
+  server.close();
+  bare.close();
+  process.exit(0);
+}
+
+server.listen({
+  Port,
+});
 
 app.get("/health", (req, res) => {
   // Create connection to database
