@@ -1,3 +1,15 @@
+# v0.0.4 (Thu Apr 18 2024)
+
+#### ⚠️ Pushed to `main`
+
+- summary ([@HuntGamesOfficial](https://github.com/HuntGamesOfficial))
+
+#### Authors: 1
+
+- [@HuntGamesOfficial](https://github.com/HuntGamesOfficial)
+
+---
+
 # v0.0.3 (Thu Apr 18 2024)
 
 #### ⚠️ Pushed to `main`
